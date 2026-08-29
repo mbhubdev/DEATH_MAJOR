@@ -2,6 +2,24 @@
 
 [ext_resource type="Script" uid="uid://dy28obei6whg3" path="res://Scripts/Camera3d.cs" id="1_5pobv"]
 
+[sub_resource type="CSharpScript" id="CSharpScript_5pobv"]
+script/source = "using Godot;
+using System;
+
+public partial class World3d : Node3D
+{
+	// Called when the node enters the scene tree for the first time.
+	public override void _Ready()
+	{
+	}
+
+	// Called every frame. 'delta' is the elapsed time since the previous frame.
+	public override void _Process(double delta)
+	{
+	}
+}
+"
+
 [sub_resource type="SphereMesh" id="SphereMesh_a5gme"]
 
 [sub_resource type="SphereMesh" id="SphereMesh_rpj7k"]
@@ -19,6 +37,7 @@ glow_intensity = 1.0
 glow_bloom = 0.5
 
 [node name="World3D" type="Node3D" unique_id=690098865]
+script = SubResource("CSharpScript_5pobv")
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=1026576260]
 script = ExtResource("1_5pobv")

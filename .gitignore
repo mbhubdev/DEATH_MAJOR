@@ -22,3 +22,5 @@ mono_crash.*.json
 *.vsidx
 bin/
 obj/
+*.sln
+*.csproj
