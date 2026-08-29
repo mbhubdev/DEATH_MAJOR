@@ -1,0 +1,48 @@
+[gd_scene format=3 uid="uid://dmwweq6sonhqx"]
+
+[ext_resource type="Script" uid="uid://dy28obei6whg3" path="res://Scripts/Camera3d.cs" id="1_5pobv"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_a5gme"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_rpj7k"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rpj7k"]
+emission_enabled = true
+emission = Color(0, 0.85882354, 0, 1)
+emission_energy_multiplier = 3.0
+
+[sub_resource type="Environment" id="Environment_a5gme"]
+background_mode = 1
+ambient_light_source = 1
+glow_enabled = true
+glow_intensity = 1.0
+glow_bloom = 0.5
+
+[node name="World3D" type="Node3D" unique_id=690098865]
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=1026576260]
+script = ExtResource("1_5pobv")
+
+[node name="PlanetOrbitPivot" type="Node3D" parent="." unique_id=718210609]
+
+[node name="Planet" type="MeshInstance3D" parent="PlanetOrbitPivot" unique_id=1823513071]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -5)
+mesh = SubResource("SphereMesh_a5gme")
+
+[node name="StarOrbitPivot" type="Node3D" parent="." unique_id=306474053]
+
+[node name="Star" type="MeshInstance3D" parent="StarOrbitPivot" unique_id=794884123]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 10, 0, -30)
+cast_shadow = 0
+mesh = SubResource("SphereMesh_rpj7k")
+surface_material_override/0 = SubResource("StandardMaterial3D_rpj7k")
+
+[node name="StarLight" type="OmniLight3D" parent="StarOrbitPivot/Star" unique_id=594692911]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+light_color = Color(0, 0.85882354, 0, 1)
+light_energy = 10.0
+shadow_enabled = true
+omni_range = 100.0
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1347324608]
+environment = SubResource("Environment_a5gme")
