@@ -3,19 +3,20 @@ using System;
 
 public partial class World3d : Node3D
 {
-    private Node3D _planetPivot;
-    private Node3D _starPivot;
-    public float PlanetSpeed = 0.5f;
-    public float StarSpeed = 0.1f;
+    private Node3D PlanetPivot;
+    private Node3D StarPivot;
+    public float PlanetSpeed = 0.1f;
+    public float StarSpeed = 0.01f;
 
     public override void _Ready()
 	{
-        _planetPivot = GetNode<Node3D>("PlanetOrbitPivot");
-        _starPivot = GetNode<Node3D>("StarOrbitPivot");
+        PlanetPivot = GetNode<Node3D>("PlanetOrbitPivot");
+        StarPivot = GetNode<Node3D>("StarOrbitPivot");
     }
 
 	public override void _Process(double delta)
 	{
-		
-	}
+        StarPivot.RotateY(StarSpeed * (float)delta);
+        PlanetPivot.RotateY(PlanetSpeed * (float)delta);
+    }
 }
