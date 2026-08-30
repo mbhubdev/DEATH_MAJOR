@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dy28obei6whg3" path="res://Scripts/Camera3d.cs" id="1_5pobv"]
 [ext_resource type="Script" uid="uid://bhi4ojo1ypecd" path="res://Scripts/World3d.cs" id="1_e0ebs"]
-[ext_resource type="Texture2D" uid="uid://bik5rpsn6oahi" path="res://Textures/space_starfield_360.jpg" id="3_rwaib"]
+[ext_resource type="Texture2D" uid="uid://d0jwhf3r2jaq1" path="res://Textures/xo3d_equirectangular.png" id="3_rwaib"]
 
 [sub_resource type="SphereMesh" id="SphereMesh_a5gme"]
 
@@ -23,7 +23,7 @@ sky_material = SubResource("PanoramaSkyMaterial_rwaib")
 background_mode = 2
 sky = SubResource("Sky_e0ebs")
 ambient_light_source = 2
-ambient_light_color = Color(0, 0.09411765, 0.1254902, 1)
+ambient_light_color = Color(0, 0, 0.11764706, 1)
 glow_enabled = true
 glow_intensity = 1.0
 glow_bloom = 0.5
@@ -57,5 +57,3 @@ omni_range = 100.0
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1347324608]
 environment = SubResource("Environment_a5gme")
-
-[node name="MilkiwayGalaxy" type="Sprite3D" parent="." unique_id=145055732]

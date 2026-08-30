@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bik5rpsn6oahi"
-path.s3tc="res://.godot/imported/space_starfield_360.jpg-7aaec6b2c76a1dd5e180f90bc0724578.s3tc.ctex"
+uid="uid://d0jwhf3r2jaq1"
+path.s3tc="res://.godot/imported/xo3d_equirectangular.png-5d34a96d7ec91c555715fe0dbae53b0b.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Textures/space_starfield_360.jpg"
-dest_files=["res://.godot/imported/space_starfield_360.jpg-7aaec6b2c76a1dd5e180f90bc0724578.s3tc.ctex"]
+source_file="res://Textures/xo3d_equirectangular.png"
+dest_files=["res://.godot/imported/xo3d_equirectangular.png-5d34a96d7ec91c555715fe0dbae53b0b.s3tc.ctex"]
 
 [params]
 
