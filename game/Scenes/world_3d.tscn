@@ -2,6 +2,8 @@
 
 [ext_resource type="Script" uid="uid://dy28obei6whg3" path="res://Scripts/Camera3d.cs" id="1_5pobv"]
 [ext_resource type="Script" uid="uid://bhi4ojo1ypecd" path="res://Scripts/World3d.cs" id="1_e0ebs"]
+[ext_resource type="Texture2D" uid="uid://bja8x0h3ly486" path="res://icon.svg" id="2_30yqp"]
+[ext_resource type="AudioStream" uid="uid://n0jjuqt7pg6m" path="res://Musics/diff_style-space-melody-197585.mp3" id="3_68m80"]
 [ext_resource type="Texture2D" uid="uid://d0jwhf3r2jaq1" path="res://Textures/xo3d_equirectangular.png" id="3_rwaib"]
 
 [sub_resource type="SphereMesh" id="SphereMesh_a5gme"]
@@ -11,7 +13,7 @@
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rpj7k"]
 emission_enabled = true
 emission = Color(0.7490196, 0.3254902, 0, 1)
-emission_energy_multiplier = 3.0
+emission_energy_multiplier = 10.0
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_rwaib"]
 panorama = ExtResource("3_rwaib")
@@ -24,12 +26,15 @@ background_mode = 2
 sky = SubResource("Sky_e0ebs")
 ambient_light_source = 2
 ambient_light_color = Color(0, 0, 0.11764706, 1)
+tonemap_mode = 2
 glow_enabled = true
 glow_intensity = 1.0
 glow_bloom = 0.5
 
 [node name="World3D" type="Node3D" unique_id=690098865]
 script = ExtResource("1_e0ebs")
+_markerTexture = ExtResource("2_30yqp")
+_defaultSignalSound = ExtResource("3_68m80")
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=1026576260]
 script = ExtResource("1_5pobv")
@@ -43,7 +48,7 @@ mesh = SubResource("SphereMesh_a5gme")
 [node name="StarOrbitPivot" type="Node3D" parent="." unique_id=306474053]
 
 [node name="Star" type="MeshInstance3D" parent="StarOrbitPivot" unique_id=794884123]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 10, 0, -30)
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 40, 0, 0)
 cast_shadow = 0
 mesh = SubResource("SphereMesh_rpj7k")
 surface_material_override/0 = SubResource("StandardMaterial3D_rpj7k")
@@ -57,3 +62,5 @@ omni_range = 100.0
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1347324608]
 environment = SubResource("Environment_a5gme")
+
+[node name="SignalAudioPlayer" type="AudioStreamPlayer3D" parent="." unique_id=1900815443]
