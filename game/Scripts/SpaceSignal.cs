@@ -6,7 +6,7 @@ public partial class SpaceSignal
     public AudioStream _sound;
     public bool _isDiscovered;
     public float _accuracyRequired;
-    public Sprite3D _visualMarker;
+    public DrawCircle3D _visualMarker;
 
     public SpaceSignal(Vector3 position, AudioStream sound, float accuracy = 0.995f)
     {

@@ -4,7 +4,6 @@ using System.Collections.Generic;
 
 public partial class World3d : Node3D
 {
-    [Export] public Texture2D _markerTexture;
     [Export] public int _totalSignals = 5;
     [Export] public float _spawnRadius = 10;
     [Export] public AudioStream _defaultSignalSound;
@@ -49,14 +48,12 @@ public partial class World3d : Node3D
             float z = Mathf.Cos(_phi);
             Vector3 _randomDirection = new Vector3(x, y, z).Normalized();
             Vector3 _spawnPositon = _randomDirection * _spawnRadius;
-            SpaceSignal _newSignal = new SpaceSignal(_spawnPositon, _defaultSignalSound, 0.995f);
-            Sprite3D _newMarker = new();
-            _newMarker.Texture = _markerTexture;
-            _newMarker.Billboard = BaseMaterial3D.BillboardModeEnum.Enabled;
-            _newMarker.Modulate = new Color(1, 1, 1, 0.6f);
-            AddChild(_newMarker);
-            _newMarker.GlobalPosition = _spawnPositon;
-            _newSignal._visualMarker = _newMarker;
+            var _circleMarker = new DrawCircle3D();
+            AddChild(_circleMarker);
+            _circleMarker.GlobalPosition = _spawnPositon;
+            AudioStream _sound = _defaultSignalSound;
+            SpaceSignal _newSignal = new SpaceSignal(_spawnPositon, _sound);
+            _newSignal._visualMarker = _circleMarker;
             _activeSignals.Add(_newSignal);
         }
     }
